@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        int age;
+        String answer;
+        String answerNameLength = "";
+        //ask user to insert his age with keyboard
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("input your age");
+        age = scanner.nextInt();
+
+        //check the range of the age
+        //-> assign compatible value to answer
+        if (age >= 0) {
+            if (age <= 12) {
+                answer = "you are kid";
+            } else if (age < 18) {
+                answer = "you are young";
+                //if the age is between 13 and 18 == true
+                //-> ask user to insert his name
+                System.out.println("input your name");
+                String name;
+                name = scanner.next();
+                //->check the name length
+                //->if name length greater than 4 write is big else write the name
+                if (name.length() > 4) {
+                    answerNameLength = "you have a long name";
+                } else {
+                    answerNameLength = name;
+                }
+            } else {
+                answer = "you are adult";
+            }
+            //print the age range
+            scanner.close();
+            System.out.println(answer);
+            if (!answerNameLength.isEmpty()) {
+                System.out.println(answerNameLength);
+            }
+        }else {
+            System.out.println("error");
+        }
+    }
+}
